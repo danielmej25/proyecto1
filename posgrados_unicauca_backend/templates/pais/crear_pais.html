@@ -1,0 +1,18 @@
+{% extends 'index.html' %}
+
+{% block titulo%}
+    Creacion de Paises
+{% endblock titulo%}
+
+{% block body%}
+    <form method="POST" >
+        {% csrf_token %}
+
+        {% if error%}
+            <h2>{{error}}</h2>
+        {% else %}
+            {{ pais_form.as_p}}<!--as_p pintarlo como parrafo,as_table como tabla -->
+            <button type="submit">Crear</button>
+        {% endif%}        
+    </form>    
+{% endblock body %}

@@ -72,7 +72,7 @@ ROOT_URLCONF = 'posgrados_unicauca_backend.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': ['posgrados_unicauca_backend/templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
