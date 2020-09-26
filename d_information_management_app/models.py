@@ -1,21 +1,44 @@
 from django.db import models
 
 # Create your models here.
-# Zona Arias
+# --------------------------------------------------Arias
 
 class Pais(models.Model):
     id = models.AutoField(primary_key=True)
     nombre = models.CharField(max_length=30, blank=False, null=False)
-
     class Meta:
         verbose_name = 'Pais'
         verbose_name_plural = 'Paises'
+
+    def __str__(self):
+        return self.nombre
+
+class Departamento(models.Model):
+    id = models.AutoField(primary_key=True)
+    nombre = models.CharField(max_length=30, blank=False, null=False)
+    pais = models.ForeignKey(Pais, on_delete=models.CASCADE, blank=False, null=False)
+
+    class Meta:
+        verbose_name = 'Departamento'
+        verbose_name_plural = 'Departamentos'
     
     def __str__(self):
         return self.nombre
 
-#---------------------------------------------------------------------------------------------------------------------------------------------
-# Zona Jeison
+class Ciudad(models.Model):
+    id = models.AutoField(primary_key=True)
+    nombre = models.CharField(max_length=30, blank=False, null=False)
+    pais = models.ForeignKey(Pais, on_delete=models.CASCADE, blank=False, null=False)
+    departamento = models.ForeignKey(Departamento, on_delete=models.CASCADE, blank=False, null=False)
+
+    class Meta:
+        verbose_name = 'Ciudad'
+        verbose_name_plural = 'Ciudades'
+    
+    def __str__(self):
+        return self.nombre
+
+# -------------------------------------------------Jeison
 # Clase que contiene la informacion basica de los Grupos de Investigacion
 class grupo_investigacion(models.Model):
     id_grupo_investigacion = models.AutoField(primary_key=True)
