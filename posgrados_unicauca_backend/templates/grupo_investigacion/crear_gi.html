@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crear grupos de investigacion</title>
+</head>
+<body>
+
+    {% if bandera == "correcto" %}
+        <script>
+            alert("se registro el grupo de investigacion");
+        </script>
+    {% endif %}
+
+    <form action="/information/crear_grupo_inv/" method="POST"> {% csrf_token %}
+        <p>ID de la Institución:  &nbsp;&nbsp;&nbsp;&nbsp;<input type="text" name="id_ins">
+        Nombre del Grupo de Investigación: <input type="text" name="name_gi"></p>
+        <p>Categoria: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <input type="text" name="categoria">&nbsp;
+        Email:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <input type="email" name="email"></p>
+        <p>Año de fundacion:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="date" name="fund_grupo">
+        <input type="submit" value="Crear" style="margin-left: 200px;"></p>
+    </form>
+</body>
+</html>

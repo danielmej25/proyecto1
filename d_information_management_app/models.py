@@ -13,3 +13,19 @@ class Pais(models.Model):
     
     def __str__(self):
         return self.nombre
+
+# Clase que contiene la informacion basica de los Grupos de Investigacion
+class grupo_investigacion(models.Model):
+    id_grupo_investigacion = models.AutoField(primary_key=True)
+    id_institucion = models.IntegerField()
+    nombre_grupo_inv = models.CharField(max_length=50)
+    categoria = models.CharField(max_length=50)
+    email = models.EmailField()
+    fundacion_grupo = models.DateField()
+
+    class Meta:
+        verbose_name = 'Grupo de investigación'
+        verbose_name_plural = 'Grupos de investigación'
+
+    def __str__(self):
+        return self.nombre_grupo_inv
