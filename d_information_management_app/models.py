@@ -1,7 +1,7 @@
 from django.db import models
 
 # Create your models here.
-
+# Zona Arias
 
 class Pais(models.Model):
     id = models.AutoField(primary_key=True)
@@ -14,6 +14,8 @@ class Pais(models.Model):
     def __str__(self):
         return self.nombre
 
+#---------------------------------------------------------------------------------------------------------------------------------------------
+# Zona Jeison
 # Clase que contiene la informacion basica de los Grupos de Investigacion
 class grupo_investigacion(models.Model):
     id_grupo_investigacion = models.AutoField(primary_key=True)
