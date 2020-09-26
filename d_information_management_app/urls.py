@@ -1,8 +1,20 @@
+#General
 from django.urls import path, include
-from .views import crearPais, crear_grupo_investigacion
+
+#Javier
+from .views import crearPais,consultarPais,crearDepartamento, crearCiudad
+
+#Jeison
+from .views import crear_grupo_investigacion
 
 urlpatterns = [
+    #Javier
     path('crear_pais/', crearPais, name='crear_pais'),
+    path('consultar_pais/', consultarPais, name='consultar_pais'),
+    path('crear_departamento/', crearDepartamento, name='crear_departamento'),
+    path('crear_ciudad/', crearCiudad, name='crear_ciudad'),
+
+    #Jeison
     path('crear_grupo_inv/', crear_grupo_investigacion, name='crear_grupo_inv'),
     #path('crear_gi/', crear_gi, name='crear_gi'),
 ]
