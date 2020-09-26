@@ -39,6 +39,6 @@ def crear_grupo_investigacion(request):
 
         gi1=grupo_investigacion(id_institucion=id_instit , nombre_grupo_inv=nombre_gi, fundacion_grupo=fundacion_grupo, email=email, categoria=categoria)
         gi1.save()
-        return render(request, "grupo_investigacion/crear_gi.html",{"bandera":bandera})
+        return render(request, "pais/crear_pais.html",{"bandera":bandera})
     else:
         return render(request, "grupo_investigacion/crear_gi.html")
