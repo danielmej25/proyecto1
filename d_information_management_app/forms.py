@@ -6,6 +6,8 @@ from .models import Pais, Departamento, Ciudad
 
 #Jeison
 
+
+#Javier
 class PaisForm(forms.ModelForm):
     class Meta:
         model = Pais
@@ -20,3 +22,5 @@ class CiudadForm(forms.ModelForm):
     class Meta:
         model = Ciudad
         fields = ['pais','departamento','nombre']
+
+#Jeison

@@ -7,11 +7,7 @@
 </head>
 <body>
 
-    {% if bandera == "correcto" %}
-        <script>
-            alert("se registro el grupo de investigacion");
-        </script>
-    {% endif %}
+    
 
     <form action="/information/crear_grupo_inv/" method="POST"> {% csrf_token %}
         <p>ID de la Institución:  &nbsp;&nbsp;&nbsp;&nbsp;<input type="text" name="id_ins">
@@ -23,5 +19,15 @@
         <p>Año de fundacion:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="date" name="fund_grupo">
         <input type="submit" value="Crear" style="margin-left: 200px;"></p>
     </form>
+    <p>En la bandera viene: {{bandera}}</p>
+    {% if bandera == "correcto" %}
+        <h3>El grupo de investigacion fue registrado CORRECTAMENTE</h3>
+        {% if variable != NULL and variable != "vacia" %}
+            <p>la variable es: {{ variable }}</p>
+        {% endif %}
+    {% endif %}
+    {% if bandera == "incorrecto" %}
+        <h3>ERROR: El grupo de Investigacion ya esta registrado</h3>
+    {% endif %}
 </body>
 </html>

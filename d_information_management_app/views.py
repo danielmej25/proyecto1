@@ -83,9 +83,22 @@ def crear_grupo_investigacion(request):
         categoria = request.POST["categoria"]
         email = request.POST["email"]
         fundacion_grupo = request.POST["fund_grupo"]
-
-        gi1=grupo_investigacion(id_institucion=id_instit , nombre_grupo_inv=nombre_gi, fundacion_grupo=fundacion_grupo, email=email, categoria=categoria)
-        gi1.save()
-        return render(request, "pais/crear_pais.html",{"bandera":bandera})
+        
+        hayElemento = grupo_investigacion.objects.filter(nombre_grupo_inv=nombre_gi)
+        if  hayElemento:
+            bandera = "incorrecto"
+        else:
+            gi1=grupo_investigacion(id_institucion=id_instit , nombre_grupo_inv=nombre_gi, fundacion_grupo=fundacion_grupo, email=email, categoria=categoria)
+            gi1.save()
+        contexto = {"bandera":bandera, "variable":hayElemento}
+        return render(request, "grupo_investigacion/crear_gi.html",contexto)
     else:
         return render(request, "grupo_investigacion/crear_gi.html")
+
+def buscar_grupo_investigacion(parNombre):
+    hayElemento = grupo_investigacion.objects.filter(nombre_grupo_inv=parNombre)
+    if hayElemento:
+        return hayElemento
+    else:
+        return "No se encontro el grupo de investigacion"
+
