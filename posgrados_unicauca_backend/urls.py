@@ -15,7 +15,9 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-from d_information_management_app.views import home
+from d_information_management_app.views import Home
+from d_information_management_app.api import PaisAPI
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -26,5 +28,6 @@ urlpatterns = [
     path('', include('c_tracking_app.urls')),
     path('', include('d_accounts_app.urls')),
     path('information/', include(('d_information_management_app.urls','information'))),
-    path('home/', home, name='index')
+    path('home/', Home.as_view(), name='index'),
+    path('api/1.0/crear_pais/', PaisAPI.as_view(), name="api_crear_pais")
 ]

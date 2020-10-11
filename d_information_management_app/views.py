@@ -12,13 +12,24 @@ import sqlite3
 #Javier
 from .forms import PaisForm, DepartamentoForm, CiudadForm
 from .models import Pais
+from django.views.generic import TemplateView,CreateView, ListView, UpdateView,FormView
+from django.urls import reverse_lazy
 
 
 # Create your views here.
 
 
 #--------------------------------------------JAVIER
+class Home(TemplateView):
+    template_name = 'index.html'
 
+class CrearPais(CreateView):
+    model = Pais
+    form_class = PaisForm
+    template_name = 'pais/crear_pais.html'
+
+
+"""    
 def home(request):
     return render(request,'index.html')
 
@@ -32,6 +43,7 @@ def crearPais(request):
     else:
         pais_form = PaisForm()
     return render(request, 'pais/crear_pais.html',{'pais_form':pais_form})
+"""
 
 def consultarPais(request):
     autor_form = None

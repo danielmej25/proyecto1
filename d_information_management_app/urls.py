@@ -2,15 +2,16 @@
 from django.urls import path, include
 
 #Javier
-from .views import crearPais,consultarPais,crearDepartamento, crearCiudad
+from .views import consultarPais,crearDepartamento, crearCiudad,CrearPais
 
 #Jeison
 from .views import crear_grupo_investigacion
 
 urlpatterns = [
     #Javier
-    path('crear_pais/', crearPais, name='crear_pais'),
+    path('crear_pais/', CrearPais.as_view(), name='crear_pais'),
     path('consultar_pais/', consultarPais, name='consultar_pais'),
+    #path('consultar_pais/', consultarPais, name='consultar_pais'),
     path('crear_departamento/', crearDepartamento, name='crear_departamento'),
     path('crear_ciudad/', crearCiudad, name='crear_ciudad'),
 
