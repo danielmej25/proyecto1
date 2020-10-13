@@ -47,6 +47,7 @@ INSTALLED_APPS = [
     # COMPLEMENTO DE EXTERNOS
     'rest_framework',
     'knox',
+
 ]
 
 # REDEFINICIÓN DE LOS TOKENS CON KNOX
