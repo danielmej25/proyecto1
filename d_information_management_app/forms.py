@@ -2,7 +2,7 @@
 from django import forms
 
 #Javier
-from .models import Pais, Departamento, Ciudad
+from .models import Pais, Departamento, Ciudad, GrupoInvestigacion
 
 #Jeison
 
@@ -24,3 +24,9 @@ class CiudadForm(forms.ModelForm):
         fields = ['pais','departamento','nombre']
 
 #Jeison
+
+class GrupoInvestigacionForm(forms.ModelForm):
+    class Meta:
+        model = GrupoInvestigacion 
+        fields = ['id_institucion','nombre','categoria','email','fecha_fundacion']
+        # fecha de fundacion hay que revisar si va

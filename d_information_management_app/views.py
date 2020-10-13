@@ -2,12 +2,12 @@
 from django.shortcuts import render, redirect
 
 #Jeison
-from .models import grupo_investigacion
 from django.http import HttpResponse
 from django.template import Template, Context, loader
 from django.shortcuts import render
 from django.contrib.auth.decorators import login_required
-import sqlite3
+from .models import GrupoInvestigacion
+from .forms import GrupoInvestigacionForm
 
 #Javier
 from .forms import PaisForm, DepartamentoForm, CiudadForm
@@ -84,9 +84,15 @@ def crearCiudad(request):
 
 
 #--------------------------------------------JEISON
-
 # Metodo para la creacion de un objeto de la clase Grupo de Investigacion
-def crear_grupo_investigacion(request):
+
+class crearGrupoInvestigacion(CreateView):
+    model = GrupoInvestigacion
+    form_class = GrupoInvestigacionForm
+    template_name = 'grupo_investigacion/crear_gi.html'
+    success_url = reverse_lazy('information:crear_grupo_inv')
+
+def crear_grupo_investigacion2(request):
 
     if request.method=="POST" and request.POST["id_ins"]:
         bandera = "correcto"
