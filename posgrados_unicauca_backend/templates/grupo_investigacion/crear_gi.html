@@ -6,25 +6,14 @@
     <title>Crear grupos de investigacion</title>
 </head>
 <body>
-
-    
-
-    <form action="/information/crear_grupo_inv/" method="POST"> {% csrf_token %}
-        <p>ID de la Institución:  &nbsp;&nbsp;&nbsp;&nbsp;<input type="text" name="id_ins">
-        Nombre del Grupo de Investigación: <input type="text" name="name_gi"></p>
-        <p>Categoria: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        <input type="text" name="categoria">&nbsp;
-        Email:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        <input type="email" name="email"></p>
-        <p>Año de fundacion:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="date" name="fund_grupo">
+    <form action="/information/crear_grupo_inv/" method="post">{% csrf_token %}
+        {{ form.as_p }}
         <input type="submit" value="Crear" style="margin-left: 200px;"></p>
     </form>
+    
     <p>En la bandera viene: {{bandera}}</p>
     {% if bandera == "correcto" %}
         <h3>El grupo de investigacion fue registrado CORRECTAMENTE</h3>
-        {% if variable != NULL and variable != "vacia" %}
-            <p>la variable es: {{ variable }}</p>
-        {% endif %}
     {% endif %}
     {% if bandera == "incorrecto" %}
         <h3>ERROR: El grupo de Investigacion ya esta registrado</h3>

@@ -1,9 +1,9 @@
-import React, { Component } from 'react';
+/*import React, { Component } from 'react';
 import 'bootstrap/dist/js/bootstrap.bundle.min';
 import '../css/sb-admin-2.css'
 import '../css/sb-admin-2.min.css'
 import '../vendor/fontawesome-free/css/all.min.css'
-import '../js/validarForm'
+import '../../../js/validarForm'
 
 
 class CreateProfessor extends Component {
@@ -102,3 +102,4 @@ class CreateProfessor extends Component {
 }
 
 export default CreateProfessor
+*/
